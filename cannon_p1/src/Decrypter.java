@@ -1,12 +1,12 @@
 public class Decrypter {
-    //String a = "";
     Application app = new Application();
+    Encrypter commonMethods = new Encrypter();
 
     public String decrypt(String str) {
-        int[] digits = app.StringToDigitArray(str);
-        digits = app.SwapOneThreeAndTwoFour(digits);
+        int[] digits = commonMethods.StringToDigitArray(str);
+        digits = commonMethods.SwapOneThreeAndTwoFour(digits);
         digits = StepTwoDecrypt(digits);
-        str = app.DigitArrayToString(digits);
+        str = commonMethods.DigitArrayToString(digits);
 
         return (str);
     }
@@ -15,9 +15,5 @@ public class Decrypter {
             digitsStepOne[i] = ((digitsStepOne[i] + 10)-7)%10;
         }
         return digitsStepOne;
-    }
-    public static void main(String[] args) {
-        String DecryptedValue = new Decrypter().decrypt("0189");
-        System.out.println(DecryptedValue);
     }
 }
