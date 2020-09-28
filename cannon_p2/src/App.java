@@ -13,14 +13,17 @@ public class App {
             return true;
         else
             return false;
-    } 
+    }
 
     public static double getUserHeight() {
         Scanner in = new Scanner(System.in);
         double height;
 
-        System.out.print("\nInput height(in): ");
-        height = in.nextDouble();
+        do {
+            System.out.print("\nInput height(in): ");
+            height = in.nextDouble();
+        } while(height <= 0);
+
         in.nextLine();
 
         return height;
@@ -30,8 +33,10 @@ public class App {
         Scanner in = new Scanner(System.in);
         double weight;
 
-        System.out.print("Input weight(lbs): ");
-        weight = in.nextDouble();
+        do {
+            System.out.print("Input weight(lbs): ");
+            weight = in.nextDouble();
+        }while(weight <= 0);
         in.nextLine();
 
         return weight;
@@ -59,7 +64,6 @@ public class App {
 
             displayBmiInfo(bmi);
         }
-
         displayBmiStatistics(bmiData);
     }
 }
